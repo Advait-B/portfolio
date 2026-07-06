@@ -1,0 +1,51 @@
+.education {
+  padding: 80px 32px;
+  background: var(--paper);
+}
+
+.heading {
+  margin: 0 0 32px;
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--line2);
+}
+
+.tag {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+}
+
+.title {
+  flex: 1;
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+
+.years {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--faint);
+}

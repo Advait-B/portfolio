@@ -1,7 +1,7 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from '../src/App';
 
 test('renders name', () => {
   render(<App />);
-  expect(within(screen.getByRole('main')).getByText(/advait/i)).toBeInTheDocument();
+  expect(screen.getByRole('heading', { level: 1, name: /advait/i })).toBeInTheDocument();
 });
