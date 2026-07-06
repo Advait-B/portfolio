@@ -1,0 +1,17 @@
+:root {
+  --paper: #ffffff;
+  --mist: #eef3f8;
+  --ice: #e9f2fa;
+  --line: #d7e5f2;
+  --line2: #b7d2e9;
+  --sky: #7db8e4;
+  --sky2: #a9c9e6;
+  --navy: #2a6fb5;
+  --deep: #14324f;
+  --ink: #0d1f33;
+  --muted: #4a5b6b;
+  --faint: #64788c;
+  --font-display: 'Instrument Serif', serif;
+  --font-body: 'Newsreader', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
