@@ -1,0 +1,38 @@
+.travel {
+  padding: 80px 32px;
+  text-align: center;
+  background: var(--deep);
+}
+
+.heading {
+  margin: 0 0 24px;
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--paper);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.chip {
+  padding: 6px 14px;
+  border: 1px solid var(--sky2);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--sky);
+}
+
+.globePlaceholder {
+  width: min(90vw, 380px);
+  aspect-ratio: 1;
+  margin: 40px auto 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #2a5f8d, #14324f);
+}

@@ -1,0 +1,17 @@
+.sparkle {
+  position: absolute;
+  color: var(--sky2);
+  animation: spin linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle {
+    animation: none;
+  }
+}
