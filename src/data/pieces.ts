@@ -5,6 +5,7 @@ export type Piece = {
   category: string;
   title: string;
   story: string;
+  media: string[];
 };
 
 export const pieces: Piece[] = [
@@ -15,7 +16,8 @@ export const pieces: Piece[] = [
     category: 'King',
     title: 'NUS',
     story:
-      'Dummy text about NUS'
+      'Dummy text about NUS',
+    media: ['Dummy media 1 about NUS', 'Dummy media 2 about NUS'],
   },
   {
     id: 'queen',
@@ -24,6 +26,7 @@ export const pieces: Piece[] = [
     category: 'Queen',
     title: 'UWC',
     story:
-      'Dummy text about UWC'
+      'Dummy text about UWC',
+    media: ['Dummy media 1 about UWC', 'Dummy media 2 about UWC'],
   },
 ];
