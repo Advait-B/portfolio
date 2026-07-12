@@ -13,3 +13,21 @@ if (!HTMLDialogElement.prototype.close) {
     this.dispatchEvent(new Event('close'));
   };
 }
+
+// jsdom doesn't implement IntersectionObserver — stub one that reports
+// elements as immediately in view, so useInView-driven fetches run in tests.
+class IntersectionObserverStub implements IntersectionObserver {
+  readonly root = null;
+  readonly rootMargin = '';
+  readonly thresholds: ReadonlyArray<number> = [];
+  constructor(private callback: IntersectionObserverCallback) {}
+  observe(target: Element) {
+    this.callback([{ isIntersecting: true, target } as IntersectionObserverEntry], this);
+  }
+  unobserve() {}
+  disconnect() {}
+  takeRecords(): IntersectionObserverEntry[] {
+    return [];
+  }
+}
+globalThis.IntersectionObserver = IntersectionObserverStub as unknown as typeof IntersectionObserver;
