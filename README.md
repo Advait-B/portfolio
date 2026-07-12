@@ -1,75 +1,47 @@
-# React + TypeScript + Vite
+# Advait Bagri — portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live:** https://advait-b.github.io/portfolio/
 
-Currently, two official plugins are available:
+A one-page chess-themed portfolio: a board where every piece opens a story about a project or
+interest, alongside education, chess, and travel sections. Built from scratch in React —
+no UI kit, no CMS, no component library — to make the repo itself part of the portfolio.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Why it looks like this
 
-## React Compiler
+The stack and file layout are deliberately minimal: one page of local UI state doesn't need
+Redux or Context, so it uses `useState`/`useReducer` and props instead. Content lives in plain
+data files (`src/data/`), never hardcoded into markup, so adding a board piece or an education
+entry is one object, not a component edit. See [ARCHITECTURE.md](./ARCHITECTURE.md) for the full
+layer breakdown and where each design principle shows up in the code.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the ESLint configuration
+| Layer | Choice | Why |
+|---|---|---|
+| UI | React 19 + TypeScript + Vite | Component model fits a page of small, list-shaped sections; types catch square/FEN bugs; Vite gives instant HMR with zero config. |
+| State | `useState` / `useReducer` + props | One page of local UI state — a state library would be résumé-driven over-engineering. |
+| Styling | CSS Modules + `tokens.css` | Scoped styles per component, design tokens as custom properties, no Tailwind/styled-components to fight. |
+| Chess logic | [chess.js](https://github.com/jhlywa/chess.js) | Battle-tested SAN/FEN handling powers the game replay; no reason to hand-roll a move parser. |
+| Live ratings | Lichess public API + a static FIDE fallback | Live numbers beat hardcoded ones; FIDE has no public API, so that card is a manually verified static value with a "last verified" date. |
+| Unit tests | Vitest + React Testing Library | Test components the way users use them (click a piece → plaque text). |
+| E2E tests | Playwright | Real browser, headless in CI. |
+| Hosting / CI | GitHub Pages + GitHub Actions | Free; lint → typecheck → test → e2e → build on every PR, deploy on merge to `main`. |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Running locally
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev          # http://localhost:5173
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Testing
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm run lint          # eslint
+npm run typecheck     # tsc --noEmit
+npm test              # vitest (unit + component)
+npm run test:e2e      # playwright, starts the dev server itself
+npm run build         # production build
 ```
+
+All five run in CI on every pull request (see `.github/workflows/ci.yml`), plus `npm audit`.
