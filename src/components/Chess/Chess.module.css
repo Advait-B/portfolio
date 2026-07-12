@@ -42,6 +42,11 @@
   border-color: var(--navy);
 }
 
+.gameTab:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
 .gameTab[aria-selected='true'] {
   background: var(--ice);
   border-color: var(--navy);
@@ -56,7 +61,7 @@
 .gameEvent {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--faint);
+  color: var(--muted); /* --faint fails AA once the tab is selected onto an --ice background */
 }
 
 .gameResult {
@@ -116,6 +121,11 @@
   background: var(--ice);
 }
 
+.replayNav button:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
 .replayNav button:disabled {
   color: var(--line2);
   cursor: default;
@@ -164,7 +174,7 @@
   margin: 4px 0 0;
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--faint);
+  color: var(--muted); /* --faint fails AA contrast on this card's --ice background */
 }
 
 .fideLink {
@@ -176,4 +186,9 @@
 .fideLink:hover,
 .fideLink:focus-visible {
   text-decoration: underline;
+}
+
+.fideLink:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
 }

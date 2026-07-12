@@ -18,6 +18,11 @@
   text-decoration: none;
 }
 
+.brand:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
 .links {
   display: flex;
   gap: 20px;
@@ -34,6 +39,11 @@
 .links a:hover,
 .links a:focus-visible {
   color: var(--navy);
+}
+
+.links a:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
 }
 
 @media (max-width: 880px) {
