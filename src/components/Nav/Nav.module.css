@@ -35,3 +35,20 @@
 .links a:focus-visible {
   color: var(--navy);
 }
+
+@media (max-width: 880px) {
+  .nav {
+    flex-wrap: wrap;
+    row-gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .links {
+    gap: 12px 16px;
+    flex-wrap: wrap;
+  }
+
+  .links a {
+    font-size: 12px;
+  }
+}
