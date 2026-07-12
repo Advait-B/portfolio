@@ -48,7 +48,7 @@ export function Board() {
     <section id="board" className={s.board}>
       <h2 className={s.heading}>The Board</h2>
       <p className={s.note}>Click on a piece to open a story.</p>
-      <div className={s.grid} role="grid" aria-label="Chess board">
+      <div className={s.grid}>
         {squares.map((sq) => (
           <div key={sq.id} className={`${s.square} ${sq.dark ? s.dark : s.light}`}>
             {sq.piece && (
