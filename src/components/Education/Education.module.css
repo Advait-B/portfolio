@@ -22,11 +22,29 @@
 }
 
 .item {
+  border-bottom: 1px dashed var(--line2);
+}
+
+.itemButton {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px dashed var(--line2);
+  width: 100%;
+  padding: 0 0 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+
+.itemButton:hover .title,
+.itemButton:focus-visible .title {
+  color: var(--navy);
+}
+
+.itemButton:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
 }
 
 .tag {
@@ -34,6 +52,7 @@
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.04em;
+  text-transform: capitalize;
   color: var(--navy);
 }
 
@@ -48,4 +67,26 @@
   font-family: var(--font-mono);
   font-size: 13px;
   color: var(--faint);
+}
+
+.dialogTag {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+  color: var(--navy);
+}
+
+.dialogTitle {
+  margin: 6px 0 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--ink);
+}
+
+.dialogDetail {
+  margin: 8px 0 0;
+  font-family: var(--font-body);
+  color: var(--muted);
 }
