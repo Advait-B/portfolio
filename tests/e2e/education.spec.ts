@@ -21,3 +21,18 @@ test('every education item opens its story and returns focus on close', async ({
     await expect(item).toBeFocused();
   }
 });
+
+test('module list expands and opens one module per group', async ({ page }) => {
+  await page.goto('/#education');
+  const toggle = page.getByRole('button', { name: /view all/i });
+  const count = await toggle.count();
+  expect(count).toBeGreaterThan(0);
+
+  for (let i = 0; i < count; i++) {
+    await toggle.first().click();
+  }
+
+  const firstRow = page.getByRole('button', { name: /CS2040C/ });
+  await firstRow.click();
+  await expect(page.getByText(/reasoning about complexity/i)).toBeVisible();
+});
