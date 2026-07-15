@@ -14,10 +14,10 @@
 }
 
 .heading {
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   font-family: var(--font-display);
-  font-size: 40px;
-  letter-spacing: -0.01em;
+  font-size: 42px;
+  line-height: 1.1;
   color: var(--ink);
 }
 
@@ -25,17 +25,53 @@
   margin: 8px 0 0;
   font-family: var(--font-body);
   font-style: italic;
+  font-size: 16px;
   color: var(--muted); /* --faint fails AA contrast on this section's --ice background */
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 48px;
+  max-width: 1000px;
+  margin: 40px auto 0;
+  align-items: start;
+  text-align: left;
+}
+
+.frame {
+  padding: 14px;
+  background: var(--deep);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(13, 31, 51, 0.25);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(8, minmax(0, 56px));
-  justify-content: center;
+  grid-template-columns: repeat(8, 1fr);
   gap: 0;
-  margin: 40px auto 0;
-  border: 1px solid var(--line2);
-  width: fit-content;
+  width: 432px;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+.legend span span {
+  margin-right: 6px;
+  font-size: 18px;
+  color: var(--ink);
 }
 
 .square {
@@ -79,8 +115,6 @@
 }
 
 .plaque {
-  max-width: 440px;
-  margin: 36px auto 0;
   min-height: 96px;
   padding: 24px 28px;
   background: var(--paper);
@@ -91,46 +125,51 @@
 
 .plaqueTag {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   margin: 0;
   font-family: var(--font-mono);
   font-size: 11px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--navy);
 }
 
 .plaqueSquare {
-  padding: 2px 8px;
-  background: var(--ice);
-  border-radius: 4px;
+  font-size: 12px;
+  letter-spacing: normal;
   text-transform: none;
+  color: var(--faint);
 }
 
 .plaqueHead {
   display: flex;
   align-items: center;
-  gap: 14px;
-  margin-top: 10px;
+  gap: 18px;
+  margin-top: 14px;
 }
 
-.plaqueIcon {
+.plaqueGlyph {
   flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  font-size: 24px;
-  background: var(--ice);
+  font-size: 50px;
+  line-height: 1;
   color: var(--ink);
 }
 
 .plaqueTitle {
   margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.dialogTitle {
+  margin: 10px 0 0;
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 32px;
+  line-height: 1.1;
   color: var(--ink);
 }
 
@@ -167,7 +206,7 @@
   left: 14px;
   bottom: 10px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 10.5px;
   color: var(--sky2);
 }
 
@@ -199,6 +238,8 @@
 .plaqueStory {
   margin: 14px 0 0;
   font-family: var(--font-body);
+  font-size: 16.5px;
+  line-height: 1.6;
   color: var(--muted);
 }
 
@@ -217,7 +258,7 @@
   border-top: 1px solid var(--line);
   background: transparent;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--faint);
   text-align: left;
   cursor: pointer;
@@ -276,3 +317,20 @@
   color: var(--faint);
   text-align: center;
 }
+
+@media (max-width: 880px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .frame {
+    max-width: 100%;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .grid {
+    width: min(calc(100vw - 96px), 432px);
+  }
+}
+

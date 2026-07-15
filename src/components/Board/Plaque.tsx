@@ -13,7 +13,7 @@ export function Plaque({ piece, onOpenStory }: PlaqueProps) {
             <span className={s.plaqueSquare}>{piece.square}</span>
           </p>
           <div className={s.plaqueHead}>
-            <span className={s.plaqueIcon} aria-hidden>
+            <span className={s.plaqueGlyph} aria-hidden>
               {piece.glyph}
             </span>
             <h3 className={s.plaqueTitle}>{piece.title}</h3>
