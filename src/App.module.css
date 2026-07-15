@@ -4,16 +4,27 @@
   background: var(--paper);
   color: var(--ink);
   border-radius: 6px;
-  overflow: hidden;
   position: relative;
   box-shadow:
     0 6px 30px rgba(20, 40, 64, 0.1),
     0 1px 3px rgba(20, 40, 64, 0.08);
 }
 
+/* overflow:hidden lives here, not on .shell, so it never shares an ancestor
+   with the sticky nav — sticky + overflow:hidden on the same box clips the
+   sticky element in some browsers. */
+.main {
+  overflow: hidden;
+  border-radius: 0 0 6px 6px;
+}
+
 @media (max-width: 600px) {
   .shell {
     margin: 0;
+    border-radius: 0;
+  }
+
+  .main {
     border-radius: 0;
   }
 }

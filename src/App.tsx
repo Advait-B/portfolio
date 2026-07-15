@@ -13,7 +13,7 @@ function App() {
   return (
     <div className={s.shell}>
       <Nav />
-      <main>
+      <main className={s.main}>
         <Hero />
         <Skills />
         <Board />
