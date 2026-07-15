@@ -22,6 +22,9 @@ export function Nav() {
             {l.label}
           </a>
         ))}
+        <a className={s.resume} href="/portfolio/resume.pdf" target="_blank" rel="noreferrer">
+          Résumé ↓
+        </a>
       </div>
     </nav>
   );
