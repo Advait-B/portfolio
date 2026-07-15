@@ -1,0 +1,19 @@
+.shell {
+  max-width: 1160px;
+  margin: 40px auto;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  box-shadow:
+    0 6px 30px rgba(20, 40, 64, 0.1),
+    0 1px 3px rgba(20, 40, 64, 0.08);
+}
+
+@media (max-width: 600px) {
+  .shell {
+    margin: 0;
+    border-radius: 0;
+  }
+}
