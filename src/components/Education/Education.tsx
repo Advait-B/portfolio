@@ -6,9 +6,14 @@ import { ModuleList } from './ModuleList';
 import s from './Education.module.css';
 
 const SCHOOLS = [
-  { school: 'nus', name: 'National University of Singapore' },
-  { school: 'uwc', name: 'UWC South East Asia' },
+  { school: 'nus', name: 'National University of Singapore', years: '2025 — 2028' },
+  { school: 'uwc', name: 'UWC South East Asia', years: '2010 — 2023' },
 ] as const;
+
+const OTHER_LABEL: Record<string, string> = {
+  award: 'Awards',
+  competition: 'Competitions',
+};
 
 export function Education() {
   const [selectedKey, setSelectedKey] = useState<string | null>(null);
@@ -17,29 +22,56 @@ export function Education() {
   return (
     <section id="education" className={s.education}>
       <h2 className={s.heading}>Education</h2>
-      {SCHOOLS.map(({ school, name }) => (
-        <div key={school} className={s.card}>
-          <h3 className={s.schoolName}>{name}</h3>
-          <ul className={s.list}>
-            {eduItems
-              .filter((item) => item.school === school)
-              .map((item) => (
-                <li key={item.key} className={s.item}>
-                  <button
-                    type="button"
-                    className={s.itemButton}
-                    onClick={() => setSelectedKey(item.key)}
-                  >
-                    <span className={s.tag}>{item.kind}</span>
-                    <span className={s.title}>{item.title}</span>
-                    <span className={s.years}>{item.years}</span>
-                  </button>
-                </li>
-              ))}
-          </ul>
-          <ModuleList groups={moduleGroups.filter((g) => g.school === school)} />
-        </div>
-      ))}
+      {SCHOOLS.map(({ school, name, years }) => {
+        const items = eduItems.filter((item) => item.school === school);
+        const activities = items.filter((item) => item.kind === 'activity');
+        const others = items.filter((item) => item.kind !== 'activity');
+        const otherLabel = OTHER_LABEL[others[0]?.kind] ?? '';
+
+        return (
+          <div key={school} className={s.card}>
+            <div className={s.cardHead}>
+              <h3 className={s.schoolName}>{name}</h3>
+              <span className={s.years}>{years}</span>
+            </div>
+            <div className={s.columns}>
+              <div>
+                <p className={s.columnLabel}>Activities</p>
+                <ul className={s.list}>
+                  {activities.map((item) => (
+                    <li key={item.key} className={s.item}>
+                      <button
+                        type="button"
+                        className={s.itemButton}
+                        onClick={() => setSelectedKey(item.key)}
+                      >
+                        {item.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className={s.columnLabel}>{otherLabel}</p>
+                <ul className={s.list}>
+                  {others.map((item) => (
+                    <li key={item.key} className={s.item}>
+                      <button
+                        type="button"
+                        className={s.itemButton}
+                        onClick={() => setSelectedKey(item.key)}
+                      >
+                        {item.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <ModuleList groups={moduleGroups.filter((g) => g.school === school)} />
+          </div>
+        );
+      })}
       <StoryDialog open={selected !== null} onClose={() => setSelectedKey(null)}>
         {selected && (
           <>

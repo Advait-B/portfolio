@@ -1,33 +1,68 @@
 .education {
-  padding: 80px 32px;
+  padding: 100px 32px;
   background: var(--paper);
 }
 
 .heading {
-  margin: 0 0 32px;
+  margin: 0 0 40px;
   font-family: var(--font-display);
-  font-size: 36px;
+  font-size: 40px;
+  letter-spacing: -0.01em;
   color: var(--ink);
   text-align: center;
 }
 
 .card {
-  max-width: 640px;
-  margin: 0 auto 48px;
+  max-width: 760px;
+  margin: 0 auto 24px;
+  padding: 32px 36px;
+  background: var(--ice);
+  border: 1px solid var(--line);
+}
+
+.cardHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .schoolName {
-  margin: 0 0 16px;
+  margin: 0;
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 24px;
   color: var(--ink);
+}
+
+.years {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--faint);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 32px;
+  margin-top: 20px;
+}
+
+.columnLabel {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin: 0;
+  gap: 8px;
+  margin: 10px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -37,19 +72,20 @@
 }
 
 .itemButton {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
+  display: block;
   width: 100%;
-  padding: 0 0 12px;
+  padding: 0 0 8px;
   border: none;
   background: transparent;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--ink);
   cursor: pointer;
   text-align: left;
 }
 
-.itemButton:hover .title,
-.itemButton:focus-visible .title {
+.itemButton:hover,
+.itemButton:focus-visible {
   color: var(--navy);
 }
 
@@ -58,26 +94,11 @@
   outline-offset: 2px;
 }
 
-.tag {
-  flex: none;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: capitalize;
-  color: var(--navy);
-}
-
-.title {
-  flex: 1;
-  font-family: var(--font-body);
-  color: var(--ink);
-}
-
-.years {
-  flex: none;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--faint);
+@media (max-width: 600px) {
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .dialogTag {
@@ -152,7 +173,7 @@
 .moduleRow {
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--ice);
+  background: var(--paper);
 }
 
 .moduleRowButton {
