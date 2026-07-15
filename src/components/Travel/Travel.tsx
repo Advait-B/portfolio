@@ -5,6 +5,7 @@ const FEATURED = ['Singapore', 'India', 'Japan', 'United States', 'United Kingdo
 export function Travel() {
   return (
     <section id="travel" className={s.travel}>
+      <p className={s.eyebrow}>Off the board</p>
       <h2 className={s.heading}>41 countries and counting</h2>
       <div className={s.chips}>
         {FEATURED.map((country) => (
