@@ -14,7 +14,10 @@ export function Nav() {
   return (
     <nav className={s.nav}>
       <a href="#home" className={s.brand}>
-        ♞ Advait Bagri
+        <span className={s.brandGlyph} aria-hidden>
+          ♞
+        </span>
+        <span>Advait Bagri</span>
       </a>
       <div className={s.links}>
         {LINKS.map((l) => (

@@ -9,18 +9,17 @@
 .eyebrow {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 13px;
-  letter-spacing: 0.12em;
+  font-size: 11px;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--navy);
+  color: var(--faint);
 }
 
 .headline {
-  margin: 16px 0 0;
+  margin: 22px 0 0;
   font-family: var(--font-display);
-  font-size: clamp(36px, 6vw, 64px);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
+  font-size: clamp(44px, 9vw, 84px);
+  line-height: 1;
   color: var(--ink);
 }
 
@@ -33,10 +32,10 @@
 }
 
 .tagline {
-  max-width: 560px;
-  margin: 22px auto 0;
+  max-width: 600px;
+  margin: 24px auto 0;
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.6;
   color: var(--muted);
 }
@@ -52,7 +51,7 @@
 .ctaPrimary,
 .ctaSecondary {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.03em;
   text-decoration: none;
   padding: 14px 26px;

@@ -16,8 +16,8 @@
 .heading {
   margin: 12px 0 0;
   font-family: var(--font-display);
-  font-size: 40px;
-  letter-spacing: -0.01em;
+  font-size: 38px;
+  line-height: 1.1;
   color: var(--ink);
 }
 
@@ -46,19 +46,20 @@
 }
 
 .hint {
-  margin: 8px 0 40px;
+  margin: 6px 0 40px;
   font-family: var(--font-body);
   font-style: italic;
   font-size: 14px;
-  color: var(--muted);
+  color: var(--faint);
 }
 
 .card {
   max-width: 760px;
   margin: 0 auto 24px;
-  padding: 32px 36px;
+  padding: 28px 32px;
   background: var(--ice);
   border: 1px solid var(--line);
+  border-radius: 10px;
   text-align: left;
 }
 
@@ -72,7 +73,8 @@
 
 .schoolName {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
+  font-weight: 500;
   font-size: 24px;
   color: var(--ink);
 }
@@ -87,6 +89,8 @@
 .summary {
   margin: 6px 0 0;
   font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
   color: var(--muted);
 }
 
@@ -100,8 +104,8 @@
 .columnLabel {
   margin: 0;
   font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.1em;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--navy);
 }
@@ -127,7 +131,8 @@
   background: transparent;
   font-family: var(--font-body);
   font-size: 15px;
-  color: var(--ink);
+  line-height: 1.5;
+  color: var(--muted);
   cursor: pointer;
   text-align: left;
 }
