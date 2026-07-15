@@ -78,7 +78,7 @@ export function Education() {
                         className={s.itemButton}
                         onClick={() => setSelectedKey(item.key)}
                       >
-                        {item.title}
+                        {item.title} ({item.years})
                       </button>
                     </li>
                   ))}

@@ -1,7 +1,6 @@
 .education {
   padding: 100px 32px;
   background: var(--paper);
-  text-align: center;
 }
 
 .eyebrow {
@@ -200,6 +199,7 @@
 .moduleToggle {
   font-family: var(--font-mono);
   font-size: 11px;
+  text-transform: uppercase;
   color: var(--faint);
   background: transparent;
   border: none;
