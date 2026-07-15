@@ -3,6 +3,7 @@ export type Game = {
   title: string;
   event: string;
   result: string;
+  detail: string;
   moves: string[];
 };
 
@@ -12,6 +13,7 @@ export const games: Game[] = [
     title: 'The Opera Game',
     event: 'Morphy vs Duke Karl & Count Isouard · Paris 1858',
     result: '1–0 in 17',
+    detail: 'Development as a weapon — every piece arrives before the attack does.',
     moves: [
       'e4', 'e5', 'Nf3', 'd6', 'd4', 'Bg4', 'dxe5', 'Bxf3', 'Qxf3', 'dxe5',
       'Bc4', 'Nf6', 'Qb3', 'Qe7', 'Nc3', 'c6', 'Bg5', 'b5', 'Nxb5', 'cxb5',
@@ -24,6 +26,7 @@ export const games: Game[] = [
     title: 'The Immortal Game',
     event: 'Anderssen vs Kieseritzky · London 1851',
     result: '1–0 in 23',
+    detail: 'Both rooks and the queen given away — mate delivered by the minor pieces alone.',
     moves: [
       'e4', 'e5', 'f4', 'exf4', 'Bc4', 'Qh4+', 'Kf1', 'b5', 'Bxb5', 'Nf6',
       'Nf3', 'Qh6', 'd3', 'Nh5', 'Nh4', 'Qg5', 'Nf5', 'c6', 'g4', 'Nf6',
@@ -37,6 +40,7 @@ export const games: Game[] = [
     title: 'The Game of the Century',
     event: 'Donald Byrne vs Fischer · New York 1956',
     result: '0–1 in 41',
+    detail: 'A queen sacrifice and the windmill that follows — calm, exact, thirteen years old.',
     moves: [
       'Nf3', 'Nf6', 'c4', 'g6', 'Nc3', 'Bg7', 'd4', 'O-O', 'Bf4', 'd5',
       'Qb3', 'dxc4', 'Qxc4', 'c6', 'e4', 'Nbd7', 'Rd1', 'Nb6', 'Qc5', 'Bg4',

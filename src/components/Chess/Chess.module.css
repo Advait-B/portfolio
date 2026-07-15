@@ -40,11 +40,16 @@
 
 .ratingCard {
   padding: 20px 24px;
-  background: var(--ice);
+  background: transparent;
   border: 1px solid var(--line);
+  border-radius: 10px;
   text-align: left;
   text-decoration: none;
   transition: border-color 0.15s ease;
+}
+
+.ratingCard.ratingCardFeatured {
+  background: var(--ice);
 }
 
 .ratingCard:hover,
@@ -73,6 +78,12 @@
 }
 
 .ratingArrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--faint);
+}
+
+.ratingHandle {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--faint);
@@ -125,6 +136,7 @@
   gap: 5px;
   padding: 14px 18px;
   border: 1px solid var(--line2);
+  border-radius: 10px;
   background: var(--paper);
   cursor: pointer;
   text-align: left;
@@ -172,6 +184,14 @@
   color: var(--muted); /* --faint fails AA once the tab is selected onto an --ice background */
 }
 
+.gameDetail {
+  margin: 3px 0 0;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
 .boardCol {
   display: flex;
   flex-direction: column;
@@ -185,6 +205,8 @@
   justify-content: center;
   gap: 0;
   border: 1px solid var(--line2);
+  border-radius: 8px;
+  overflow: hidden;
   width: fit-content;
 }
 
@@ -214,6 +236,7 @@
 
 .replayNav button {
   border: 1px solid var(--line2);
+  border-radius: 6px;
   background: var(--paper);
   color: var(--navy);
   width: 36px;

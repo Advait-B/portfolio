@@ -10,6 +10,12 @@ export const profile = {
     blitz: 1984,
     verified: '2026-07-12',
   },
+  // dummy placeholder — swap for a live chess.com API call once one exists
+  chesscom: {
+    handle: 'advaitb',
+    blitz: 2390,
+    rapid: 2312,
+  },
 };
 
 export type Profile = typeof profile;

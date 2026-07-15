@@ -20,6 +20,7 @@ export function GameList({ games, selectedId, onSelect }: GameListProps) {
             <span className={s.gameResult}>{game.result}</span>
           </span>
           <span className={s.gameEvent}>{game.event}</span>
+          <span className={s.gameDetail}>{game.detail}</span>
         </button>
       ))}
     </div>
