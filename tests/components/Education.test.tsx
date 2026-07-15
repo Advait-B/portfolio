@@ -16,9 +16,9 @@ test('closing the popup removes its content', () => {
 
   fireEvent.click(screen.getByRole('button', { name: /crest gold award/i }));
   const dialog = screen.getByRole('dialog');
-  expect(within(dialog).getByText(/gold-level recognition/i)).toBeInTheDocument();
+  expect(within(dialog).getByText(/extended research project/i)).toBeInTheDocument();
 
   fireEvent.click(within(dialog).getByRole('button', { name: /close/i }));
 
-  expect(within(dialog).queryByText(/gold-level recognition/i)).not.toBeInTheDocument();
+  expect(within(dialog).queryByText(/extended research project/i)).not.toBeInTheDocument();
 });

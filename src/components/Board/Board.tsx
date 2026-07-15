@@ -46,54 +46,81 @@ export function Board() {
 
   return (
     <section id="board" className={s.board}>
-      <h2 className={s.heading}>The Board</h2>
-      <p className={s.note}>Click on a piece to open a story.</p>
-      <div className={s.grid}>
-        {squares.map((sq) => (
-          <div key={sq.id} className={`${s.square} ${sq.dark ? s.dark : s.light}`}>
-            {sq.piece && (
-              <button
-                type="button"
-                className={s.piece}
-                aria-pressed={state.selected === sq.piece.square}
-                aria-label={`${sq.piece.title} — ${sq.piece.category} on ${sq.id}`}
-                onClick={() => dispatch({ type: 'toggle', square: sq.piece!.square })}
-              >
-                {sq.piece.glyph}
-              </button>
-            )}
+      <p className={s.eyebrow}>The board</p>
+      <h2 className={s.heading}>Every piece has a story.</h2>
+      <p className={s.note}>click any piece — the plaque updates</p>
+      <div className={s.layout}>
+        <div className={s.frame}>
+          <div className={s.grid}>
+            {squares.map((sq) => (
+              <div key={sq.id} className={`${s.square} ${sq.dark ? s.dark : s.light}`}>
+                {sq.piece && (
+                  <button
+                    type="button"
+                    className={s.piece}
+                    aria-pressed={state.selected === sq.piece.square}
+                    aria-label={`${sq.piece.title} — ${sq.piece.category} on ${sq.id}`}
+                    onClick={() => dispatch({ type: 'toggle', square: sq.piece!.square })}
+                  >
+                    {sq.piece.glyph}
+                  </button>
+                )}
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+        <div className={s.side}>
+          <div className={s.legend}>
+            <span>
+              <span aria-hidden>♟</span> Pawns — the projects
+            </span>
+            <span>
+              <span aria-hidden>♚♛</span> King &amp; Queen — academics
+            </span>
+            <span>
+              <span aria-hidden>♜</span> Rooks — the interests
+            </span>
+            <span>
+              <span aria-hidden>♞♝</span> Knights &amp; Bishops — pursuits
+            </span>
+          </div>
+          <Plaque piece={selectedPiece} onOpenStory={() => dispatch({ type: 'openStory' })} />
+        </div>
       </div>
-      <Plaque piece={selectedPiece} onOpenStory={() => dispatch({ type: 'openStory' })} />
       <StoryDialog open={state.dialogOpen} onClose={() => dispatch({ type: 'closeStory' })}>
         {state.dialogOpen && selectedPiece && (
           <>
-            <p className={s.plaqueTag}>
-              {selectedPiece.category} · {selectedPiece.square}
-            </p>
-            <h3 className={s.plaqueTitle}>{selectedPiece.title}</h3>
-            <p className={s.plaqueStory}>{selectedPiece.story}</p>
-            <div className={s.carousel}>
-              <button
-                type="button"
-                aria-label="Previous"
-                onClick={() => dispatch({ type: 'prevMedia' })}
-              >
-                ‹
-              </button>
-              <p aria-live="polite">{selectedPiece.media[state.mediaIndex]}</p>
-              <button
-                type="button"
-                aria-label="Next"
-                onClick={() => dispatch({ type: 'nextMedia' })}
-              >
-                ›
-              </button>
+            <p className={s.plaqueTag}>{selectedPiece.category} · full story</p>
+            <h3 className={s.dialogTitle}>{selectedPiece.title}</h3>
+            <div className={`${s.demo} ${s.dialogDemo}`} aria-hidden>
+              <span className={s.demoPlay}>▶</span>
+              <span className={s.demoCaption}>demo reel</span>
             </div>
-            <p className={s.carouselCount}>
-              {state.mediaIndex + 1} / {selectedPiece.media.length}
-            </p>
+            <p className={s.plaqueStory}>{selectedPiece.story}</p>
+            {selectedPiece.media.length > 0 && (
+              <>
+                <div className={s.carousel}>
+                  <button
+                    type="button"
+                    aria-label="Previous"
+                    onClick={() => dispatch({ type: 'prevMedia' })}
+                  >
+                    ‹
+                  </button>
+                  <p aria-live="polite">{selectedPiece.media[state.mediaIndex]}</p>
+                  <button
+                    type="button"
+                    aria-label="Next"
+                    onClick={() => dispatch({ type: 'nextMedia' })}
+                  >
+                    ›
+                  </button>
+                </div>
+                <p className={s.carouselCount}>
+                  {state.mediaIndex + 1} / {selectedPiece.media.length}
+                </p>
+              </>
+            )}
           </>
         )}
       </StoryDialog>

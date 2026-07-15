@@ -1,33 +1,119 @@
 .education {
-  padding: 80px 32px;
+  padding: 100px 32px;
   background: var(--paper);
 }
 
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
 .heading {
-  margin: 0 0 32px;
+  margin: 12px 0 0;
   font-family: var(--font-display);
-  font-size: 36px;
+  font-size: 38px;
+  line-height: 1.1;
   color: var(--ink);
-  text-align: center;
+}
+
+.sparkle {
+  display: inline-block;
+  font-size: 24px;
+  color: var(--sky);
+  vertical-align: super;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle {
+    animation: none;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.hint {
+  margin: 6px 0 40px;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--faint);
 }
 
 .card {
-  max-width: 640px;
-  margin: 0 auto 48px;
+  max-width: 760px;
+  margin: 0 auto 24px;
+  padding: 28px 32px;
+  background: var(--ice);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  text-align: left;
+}
+
+.cardHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .schoolName {
-  margin: 0 0 16px;
-  font-family: var(--font-display);
-  font-size: 22px;
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 24px;
   color: var(--ink);
+}
+
+.years {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--faint);
+}
+
+.summary {
+  margin: 6px 0 0;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 32px;
+  margin-top: 20px;
+}
+
+.columnLabel {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy);
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin: 0;
+  gap: 8px;
+  margin: 10px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -37,19 +123,21 @@
 }
 
 .itemButton {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
+  display: block;
   width: 100%;
-  padding: 0 0 12px;
+  padding: 0 0 8px;
   border: none;
   background: transparent;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--muted);
   cursor: pointer;
   text-align: left;
 }
 
-.itemButton:hover .title,
-.itemButton:focus-visible .title {
+.itemButton:hover,
+.itemButton:focus-visible {
   color: var(--navy);
 }
 
@@ -58,26 +146,11 @@
   outline-offset: 2px;
 }
 
-.tag {
-  flex: none;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  text-transform: capitalize;
-  color: var(--navy);
-}
-
-.title {
-  flex: 1;
-  font-family: var(--font-body);
-  color: var(--ink);
-}
-
-.years {
-  flex: none;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--faint);
+@media (max-width: 600px) {
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .dialogTag {
@@ -104,19 +177,39 @@
 
 .moduleList {
   margin-top: 24px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.moduleHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.moduleLabel {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--navy);
 }
 
 .moduleToggle {
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.04em;
+  font-size: 11px;
   text-transform: uppercase;
-  color: var(--navy);
+  color: var(--faint);
   background: transparent;
-  border: 1px solid var(--line2);
-  border-radius: 999px;
-  padding: 6px 16px;
+  border: none;
+  padding: 0;
   cursor: pointer;
+}
+
+.moduleToggle:hover,
+.moduleToggle:focus-visible {
+  color: var(--navy);
 }
 
 .moduleToggle:focus-visible {
@@ -152,7 +245,7 @@
 .moduleRow {
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--ice);
+  background: var(--paper);
 }
 
 .moduleRowButton {

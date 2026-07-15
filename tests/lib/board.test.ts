@@ -16,7 +16,7 @@ describe('buildBoard', () => {
   test('places each piece on its square', () => {
     const b = buildBoard(pieces);
     const e1 = b.find((sq) => sq.id === 'e1');
-    expect(e1?.piece?.title).toBe('NUS');
+    expect(e1?.piece?.title).toBe('National University of Singapore');
   });
 
   test('every piece has a non-empty title and story', () => {

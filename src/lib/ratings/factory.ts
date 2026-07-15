@@ -5,7 +5,7 @@ import { makeFideProvider } from './fide-static';
 
 export function makeProviders(profile: Profile): RatingProvider[] {
   return [
-    makeLichessProvider(profile.lichessHandle, profile.lichessFallback),
     makeFideProvider(profile.fide.standard),
+    makeLichessProvider(profile.lichessHandle, profile.lichessFallback),
   ];
 }

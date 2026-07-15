@@ -1,6 +1,7 @@
 .sparkle {
   position: absolute;
   color: var(--sky2);
+  opacity: 0.75;
   animation: spin linear infinite;
 }
 
@@ -16,8 +17,8 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .sparkle {
-    font-size: 18px !important;
+    display: none;
   }
 }

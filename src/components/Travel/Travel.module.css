@@ -1,13 +1,23 @@
 .travel {
-  padding: 80px 32px;
+  padding: 100px 32px;
   text-align: center;
   background: var(--deep);
 }
 
+.eyebrow {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+
 .heading {
-  margin: 0 0 24px;
+  margin: 12px 0 24px;
   font-family: var(--font-display);
-  font-size: 36px;
+  font-size: 40px;
+  letter-spacing: -0.01em;
   color: var(--paper);
 }
 

@@ -29,6 +29,14 @@ html {
 
 body {
   margin: 0;
+  background: var(--mist);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
 }
 
 @media (prefers-reduced-motion: reduce) {

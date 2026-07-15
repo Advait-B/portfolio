@@ -7,12 +7,13 @@ import { Nav } from './components/Nav/Nav'
 import { Now } from './components/Now/Now'
 import { Skills } from './components/Skills/Skills'
 import { Travel } from './components/Travel/Travel'
+import s from './App.module.css'
 
 function App() {
   return (
-    <>
+    <div className={s.shell}>
       <Nav />
-      <main>
+      <main className={s.main}>
         <Hero />
         <Skills />
         <Board />
@@ -22,7 +23,7 @@ function App() {
         <Chess />
         <Contact />
       </main>
-    </>
+    </div>
   )
 }
 

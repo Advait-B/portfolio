@@ -2,23 +2,26 @@ import { useState } from 'react';
 import { modules, type ModuleGroup } from '../../data/modules';
 import s from './Education.module.css';
 
-type ModuleListProps = { groups: ModuleGroup[] };
+type ModuleListProps = { label: string; groups: ModuleGroup[] };
 
-export function ModuleList({ groups }: ModuleListProps) {
+export function ModuleList({ label, groups }: ModuleListProps) {
   const [expanded, setExpanded] = useState(false);
   const [openKey, setOpenKey] = useState<string | null>(null);
   const total = groups.reduce((n, g) => n + g.keys.length, 0);
 
   return (
     <div className={s.moduleList}>
-      <button
-        type="button"
-        className={s.moduleToggle}
-        aria-expanded={expanded}
-        onClick={() => setExpanded((v) => !v)}
-      >
-        {expanded ? 'Hide −' : `View all ${total} +`}
-      </button>
+      <div className={s.moduleHead}>
+        <span className={s.moduleLabel}>{label}</span>
+        <button
+          type="button"
+          className={s.moduleToggle}
+          aria-expanded={expanded}
+          onClick={() => setExpanded((v) => !v)}
+        >
+          {expanded ? 'Hide −' : `View all ${total} +`}
+        </button>
+      </div>
       {expanded && (
         <div className={s.moduleGroups}>
           {groups.map((group) => (

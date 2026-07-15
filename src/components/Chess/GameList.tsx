@@ -15,8 +15,12 @@ export function GameList({ games, selectedId, onSelect }: GameListProps) {
           className={s.gameTab}
           onClick={() => onSelect(game.id)}
         >
-          <span className={s.gameTitle}>{game.title}</span>
+          <span className={s.gameTop}>
+            <span className={s.gameTitle}>{game.title}</span>
+            <span className={s.gameResult}>{game.result}</span>
+          </span>
           <span className={s.gameEvent}>{game.event}</span>
+          <span className={s.gameDetail}>{game.detail}</span>
         </button>
       ))}
     </div>
