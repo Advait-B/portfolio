@@ -46,8 +46,9 @@ export function Board() {
 
   return (
     <section id="board" className={s.board}>
-      <h2 className={s.heading}>The Board</h2>
-      <p className={s.note}>Click on a piece to open a story.</p>
+      <p className={s.eyebrow}>The board</p>
+      <h2 className={s.heading}>Every piece has a story.</h2>
+      <p className={s.note}>click any piece — the plaque updates</p>
       <div className={s.grid}>
         {squares.map((sq) => (
           <div key={sq.id} className={`${s.square} ${sq.dark ? s.dark : s.light}`}>
