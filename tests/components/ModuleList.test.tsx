@@ -21,10 +21,10 @@ test('clicking a module reveals its grade and collapses on a second click', () =
 
   const row = screen.getByRole('button', { name: /CS2040C/i });
   fireEvent.click(row);
-  expect(screen.getByText('B+')).toBeInTheDocument();
+  expect(screen.getByText('A+')).toBeInTheDocument();
 
   fireEvent.click(row);
-  expect(screen.queryByText('B+')).not.toBeInTheDocument();
+  expect(screen.queryByText('A+')).not.toBeInTheDocument();
 });
 
 test('only one row is open at a time', () => {
@@ -32,9 +32,9 @@ test('only one row is open at a time', () => {
   fireEvent.click(screen.getByRole('button', { name: /view all/i }));
 
   fireEvent.click(screen.getByRole('button', { name: /CS2040C/i }));
-  expect(screen.getByText('B+')).toBeInTheDocument();
+  expect(screen.getByText('A+')).toBeInTheDocument();
 
   fireEvent.click(screen.getByRole('button', { name: /EG1311/i }));
-  expect(screen.queryByText('B+')).not.toBeInTheDocument();
+  expect(screen.queryByText('A+')).not.toBeInTheDocument();
   expect(screen.getByText('Design and Make')).toBeInTheDocument();
 });
