@@ -1,15 +1,11 @@
 import { test, expect } from '@playwright/test';
+import { pieces } from '../../src/data/pieces';
 
 test('every piece on the board opens its story in the plaque', async ({ page }) => {
   await page.goto('/#board');
-  const pieces = page.locator('#board button[aria-pressed]');
-  const count = await pieces.count();
-  expect(count).toBeGreaterThan(0);
 
-  for (let i = 0; i < count; i++) {
-    const piece = pieces.nth(i);
-    const label = await piece.getAttribute('aria-label');
-    const title = label!.split(' — ')[0];
+  for (const { title, square } of pieces) {
+    const piece = page.locator(`#board button[aria-label$="on ${square}"]`);
 
     await piece.click();
     await expect(page.locator('#board h3')).toHaveText(title);
