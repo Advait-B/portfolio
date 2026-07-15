@@ -90,6 +90,9 @@
 }
 
 .plaqueTag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 0;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -98,15 +101,103 @@
   color: var(--navy);
 }
 
+.plaqueSquare {
+  padding: 2px 8px;
+  background: var(--ice);
+  border-radius: 4px;
+  text-transform: none;
+}
+
+.plaqueHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.plaqueIcon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 24px;
+  background: var(--ice);
+  color: var(--ink);
+}
+
 .plaqueTitle {
-  margin: 6px 0 0;
+  margin: 0;
   font-family: var(--font-display);
   font-size: 22px;
   color: var(--ink);
 }
 
+.demo {
+  position: relative;
+  width: 100%;
+  margin-top: 14px;
+  aspect-ratio: 16 / 6.5;
+  border-radius: 8px;
+  background: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.demoPlay {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--paper);
+  font-size: 14px;
+}
+
+.demoCaption {
+  position: absolute;
+  left: 14px;
+  bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--sky2);
+}
+
+.demoDots {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.demoDots span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--muted);
+}
+
+.demoDots span:first-child {
+  background: var(--navy);
+}
+
+.dialogDemo {
+  margin: 14px 0 0;
+  aspect-ratio: 16 / 7.5;
+  border-radius: 8px;
+}
+
 .plaqueStory {
-  margin: 8px 0 0;
+  margin: 14px 0 0;
   font-family: var(--font-body);
   color: var(--muted);
 }
@@ -118,13 +209,17 @@
 }
 
 .plaqueMore {
-  margin: 12px 0 0;
-  padding: 0;
+  display: block;
+  width: 100%;
+  margin: 16px 0 0;
+  padding: 14px 0 0;
   border: none;
+  border-top: 1px solid var(--line);
   background: transparent;
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--navy);
+  color: var(--faint);
+  text-align: left;
   cursor: pointer;
 }
 

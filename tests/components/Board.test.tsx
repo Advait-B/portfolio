@@ -20,11 +20,11 @@ test('clicking a selected piece again clears the plaque', () => {
   expect(screen.getByText(/select a piece/i)).toBeInTheDocument();
 });
 
-test('read full story opens the dialog with the piece story', () => {
+test('open the full story opens the dialog with the piece story', () => {
   render(<Board />);
 
   fireEvent.click(screen.getByRole('button', { name: /national university of singapore/i }));
-  fireEvent.click(screen.getByRole('button', { name: /read full story/i }));
+  fireEvent.click(screen.getByRole('button', { name: /open the full story/i }));
 
   const dialog = screen.getByRole('dialog');
   expect(dialog).toHaveTextContent('National University of Singapore');
@@ -35,7 +35,7 @@ test('closing the dialog hides its content but keeps the trigger', () => {
   render(<Board />);
 
   fireEvent.click(screen.getByRole('button', { name: /national university of singapore/i }));
-  const trigger = screen.getByRole('button', { name: /read full story/i });
+  const trigger = screen.getByRole('button', { name: /open the full story/i });
   fireEvent.click(trigger);
 
   fireEvent.click(screen.getByRole('button', { name: /close/i }));

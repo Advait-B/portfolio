@@ -70,10 +70,12 @@ export function Board() {
       <StoryDialog open={state.dialogOpen} onClose={() => dispatch({ type: 'closeStory' })}>
         {state.dialogOpen && selectedPiece && (
           <>
-            <p className={s.plaqueTag}>
-              {selectedPiece.category} · {selectedPiece.square}
-            </p>
+            <p className={s.plaqueTag}>{selectedPiece.category} · full story</p>
             <h3 className={s.plaqueTitle}>{selectedPiece.title}</h3>
+            <div className={`${s.demo} ${s.dialogDemo}`} aria-hidden>
+              <span className={s.demoPlay}>▶</span>
+              <span className={s.demoCaption}>demo reel</span>
+            </div>
             <p className={s.plaqueStory}>{selectedPiece.story}</p>
             {selectedPiece.media.length > 0 && (
               <>

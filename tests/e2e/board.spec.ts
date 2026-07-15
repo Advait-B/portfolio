@@ -35,7 +35,7 @@ test('a piece can be selected and its story opened using only the keyboard', asy
   for (let i = 0; i < 60; i++) {
     await page.keyboard.press('Tab');
     foundReadMore = await page.evaluate(
-      () => document.activeElement?.textContent?.includes('Read full story') ?? false,
+      () => document.activeElement?.textContent?.includes('open the full story') ?? false,
     );
     if (foundReadMore) break;
   }
