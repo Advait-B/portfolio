@@ -1,31 +1,29 @@
 import s from './Skills.module.css';
 
-const SKILLS = [
-  'React',
-  'TypeScript',
-  'C++',
-  'Data Structures & Algorithms',
-  'Chess Strategy',
-  'Robotics',
-  'Public Speaking',
-];
+const SOFTWARE =
+  'C · C++ · Python · TypeScript · Verilog · ROS 2 · RTOS · OpenCV · MATLAB · Git · Linux';
+const HARDWARE =
+  'Arduino · Raspberry Pi · STM32 · IMU / sensor fusion · motor drivers · soldering · 3D printing · Fusion 360 · oscilloscope · PCB design';
+
+function Row({ label, text, reverse }: { label: string; text: string; reverse?: boolean }) {
+  return (
+    <div className={s.row}>
+      <span className={s.label}>{label}</span>
+      <div className={s.track}>
+        <span className={reverse ? s.groupReverse : s.group}>{text}</span>
+        <span className={reverse ? s.groupReverse : s.group} aria-hidden>
+          {text}
+        </span>
+      </div>
+    </div>
+  );
+}
 
 export function Skills() {
   return (
     <div className={s.skills}>
-      <span className={s.label}>SKILLS</span>
-      <div className={s.track}>
-        <span className={s.group}>
-          {SKILLS.map((skill) => (
-            <span key={skill}>{skill}</span>
-          ))}
-        </span>
-        <span className={s.group} aria-hidden>
-          {SKILLS.map((skill) => (
-            <span key={skill}>{skill}</span>
-          ))}
-        </span>
-      </div>
+      <Row label="Software" text={SOFTWARE} />
+      <Row label="Hardware" text={HARDWARE} reverse />
     </div>
   );
 }
