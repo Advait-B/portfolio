@@ -1,9 +1,10 @@
 .skills {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
   padding: 22px 0;
-  background: var(--ink);
+  background: var(--paper);
+  border-top: 1px solid var(--line);
   overflow: hidden;
 }
 
@@ -18,10 +19,13 @@
   width: 90px;
   padding-left: 32px;
   font-family: var(--font-mono);
-  font-size: 12px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--sky);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+}
+
+.row:last-child .label {
+  color: var(--ink);
 }
 
 .track {
@@ -38,7 +42,7 @@
   white-space: nowrap;
   font-family: var(--font-mono);
   font-size: 14px;
-  color: var(--paper);
+  color: var(--muted);
   animation: scroll 28s linear infinite;
 }
 
