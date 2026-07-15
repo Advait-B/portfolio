@@ -6,7 +6,7 @@ import { moduleGroups } from '../../src/data/modules';
 const nusGroups = moduleGroups.filter((g) => g.school === 'nus');
 
 test('outer toggle reveals module groups', () => {
-  render(<ModuleList groups={nusGroups} />);
+  render(<ModuleList label="Modules" groups={nusGroups} />);
 
   expect(screen.queryByText('CS2040C')).not.toBeInTheDocument();
 
@@ -16,7 +16,7 @@ test('outer toggle reveals module groups', () => {
 });
 
 test('clicking a module reveals its grade and collapses on a second click', () => {
-  render(<ModuleList groups={nusGroups} />);
+  render(<ModuleList label="Modules" groups={nusGroups} />);
   fireEvent.click(screen.getByRole('button', { name: /view all/i }));
 
   const row = screen.getByRole('button', { name: /CS2040C/i });
@@ -28,7 +28,7 @@ test('clicking a module reveals its grade and collapses on a second click', () =
 });
 
 test('only one row is open at a time', () => {
-  render(<ModuleList groups={nusGroups} />);
+  render(<ModuleList label="Modules" groups={nusGroups} />);
   fireEvent.click(screen.getByRole('button', { name: /view all/i }));
 
   fireEvent.click(screen.getByRole('button', { name: /CS2040C/i }));

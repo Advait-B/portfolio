@@ -6,8 +6,20 @@ import { ModuleList } from './ModuleList';
 import s from './Education.module.css';
 
 const SCHOOLS = [
-  { school: 'nus', name: 'National University of Singapore', years: '2025 — 2028' },
-  { school: 'uwc', name: 'UWC South East Asia', years: '2010 — 2023' },
+  {
+    school: 'nus',
+    name: 'National University of Singapore',
+    years: '2025 — 2028',
+    summary: "B.Eng Computer Engineering · First Class Honours · GPA 4.84/5.00 · NOC Silicon Valley '27",
+    moduleLabel: "Modules · every one I've taken",
+  },
+  {
+    school: 'uwc',
+    name: 'UWC South East Asia',
+    years: '2010 — 2023',
+    summary: 'High School Diploma · IB 45/45',
+    moduleLabel: 'IB subjects · 45/45',
+  },
 ] as const;
 
 const OTHER_LABEL: Record<string, string> = {
@@ -26,7 +38,7 @@ export function Education() {
         The opening. <span className={s.sparkle}>✦</span>
       </h2>
       <p className={s.hint}>click any activity, award or competition — a little card opens</p>
-      {SCHOOLS.map(({ school, name, years }) => {
+      {SCHOOLS.map(({ school, name, years, summary, moduleLabel }) => {
         const items = eduItems.filter((item) => item.school === school);
         const activities = items.filter((item) => item.kind === 'activity');
         const others = items.filter((item) => item.kind !== 'activity');
@@ -38,6 +50,7 @@ export function Education() {
               <h3 className={s.schoolName}>{name}</h3>
               <span className={s.years}>{years}</span>
             </div>
+            <p className={s.summary}>{summary}</p>
             <div className={s.columns}>
               <div>
                 <p className={s.columnLabel}>Activities</p>
@@ -72,7 +85,10 @@ export function Education() {
                 </ul>
               </div>
             </div>
-            <ModuleList groups={moduleGroups.filter((g) => g.school === school)} />
+            <ModuleList
+              label={moduleLabel}
+              groups={moduleGroups.filter((g) => g.school === school)}
+            />
           </div>
         );
       })}
