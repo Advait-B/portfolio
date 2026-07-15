@@ -21,7 +21,11 @@ export function Education() {
 
   return (
     <section id="education" className={s.education}>
-      <h2 className={s.heading}>Education</h2>
+      <p className={s.eyebrow}>Education &amp; honours</p>
+      <h2 className={s.heading}>
+        The opening. <span className={s.sparkle}>✦</span>
+      </h2>
+      <p className={s.hint}>click any activity, award or competition — a little card opens</p>
       {SCHOOLS.map(({ school, name, years }) => {
         const items = eduItems.filter((item) => item.school === school);
         const activities = items.filter((item) => item.kind === 'activity');
