@@ -4,7 +4,7 @@ test('ratings fall back to cached values when the network is unavailable', async
   await page.route('https://lichess.org/**', (route) => route.abort());
 
   await page.goto('/#chess');
-  await page.getByText('FIDE Standard').scrollIntoViewIfNeeded();
+  await page.getByText('FIDE', { exact: true }).scrollIntoViewIfNeeded();
 
   await expect(page.getByText('2538')).toBeVisible(); // cached lichess fallback
   await expect(page.getByText('cached')).toBeVisible();
