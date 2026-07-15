@@ -74,26 +74,30 @@ export function Board() {
             </p>
             <h3 className={s.plaqueTitle}>{selectedPiece.title}</h3>
             <p className={s.plaqueStory}>{selectedPiece.story}</p>
-            <div className={s.carousel}>
-              <button
-                type="button"
-                aria-label="Previous"
-                onClick={() => dispatch({ type: 'prevMedia' })}
-              >
-                ‹
-              </button>
-              <p aria-live="polite">{selectedPiece.media[state.mediaIndex]}</p>
-              <button
-                type="button"
-                aria-label="Next"
-                onClick={() => dispatch({ type: 'nextMedia' })}
-              >
-                ›
-              </button>
-            </div>
-            <p className={s.carouselCount}>
-              {state.mediaIndex + 1} / {selectedPiece.media.length}
-            </p>
+            {selectedPiece.media.length > 0 && (
+              <>
+                <div className={s.carousel}>
+                  <button
+                    type="button"
+                    aria-label="Previous"
+                    onClick={() => dispatch({ type: 'prevMedia' })}
+                  >
+                    ‹
+                  </button>
+                  <p aria-live="polite">{selectedPiece.media[state.mediaIndex]}</p>
+                  <button
+                    type="button"
+                    aria-label="Next"
+                    onClick={() => dispatch({ type: 'nextMedia' })}
+                  >
+                    ›
+                  </button>
+                </div>
+                <p className={s.carouselCount}>
+                  {state.mediaIndex + 1} / {selectedPiece.media.length}
+                </p>
+              </>
+            )}
           </>
         )}
       </StoryDialog>
